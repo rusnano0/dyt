@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/tag_suggestion.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="row clearfix">
+        <div class="col-md-6 col-md-offset-3 column" style="">
+            <form action="" method="post" id="search-form" autocomplete="off">
+                {% csrf_token %}
+                <div class="input-group input-group-sm">
+                    <div class="tag-suggestion">
+                    {{ searchtag.q.errors }}
+                    {{ searchtag.q }}
+                    </div>
+
+                    <span class="input-group-btn">
+                        <button class="btn btn-search" type="submit">search</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+
+    <div class="row clearfix">
+        <div class="col-md-12 column posts">
+            {% for tag in tags %}
+                {% for post in tag.post.all %}
+                    <div class="well">
+                        {{ post.text }}
+                        <p></p>
+                        <p>
+                          <i class="icon-user"></i><a href="/user/{{ post.user }}">{{ post.user }}</a>
+                          | {{ post.created_date | date:"d/m/Y"}}
+                          | <a href="#"><i class="glyphicon glyphicon-comment"></i> Comments</a>
+                          | <a href="#"><i class="glyphicon glyphicon-share-alt"></i> Shares</a>
+                            {% if post.hashtag_set.all|length > 0 %}
+                          | <i class="icon-tags"></i> Tags:
+                            {% for hashtag in post.hashtag_set.all %}
+                            <a href="#"><span class="label label-info">{{ hashtag }}</span></a>
+                            {% endfor %}
+                            {% endif %}
+                        </p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/typahead.js' %}"></script>
+    <script src="{% static 'js/search_tag.js' %}"></script>
+
+{% endblock %}
+
+
+

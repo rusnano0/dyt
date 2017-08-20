@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <p class="navbar-text navbar-left">
+        <i class="glyphicon glyphicon-user"></i> profile.username {{ profile.username }}
+    </p>
+
+    <p class="navbar-text navbar-right">
+        <a href="/user/{{ user.username }}"><i class="glyphicon glyphicon-user"></i>{{ user.username }}</a>
+    </p>
+{% endblock %}
+
+{% block content %}
+
+<div class="row clearfix">
+
+    <div class="col-md-12 column">
+
+        <form action="post/" method="post">
+            {% csrf_token %}
+            <div class="col-md-8 col-md-offset-2 fieldWrapper form-group">
+                {{ form.text.errors }}
+                {{ form.text }}
+            </div>
+            <button type="submit" class="btn btn-primary"><i class=""></i>Post</button>
+        </form>
+
+    </div>
+
+    <div class="col-md-12 column">
+
+        {% for post in posts %}
+
+            <div class="well">
+                {{ post.text }}
+                <p></p>
+                <p>
+                  <i class="icon-user"></i><a href="/user/{{ user.username }}">{{ user }}</a>
+                  | {{ post.created_date | date:"d/m/Y"}}
+                  | <a href="#"><i class="glyphicon glyphicon-comment"></i> Comments</a>
+                  | <a href="#"><i class="glyphicon glyphicon-share-alt"></i> Shares</a>
+                    {% if post.hashtag_set.all|length > 0 %}
+                  | <i class="icon-tags"></i> Tags:
+                    {% for hashtag in post.hashtag_set.all %}
+                    <a href="#"><span class="label label-info">{{ hashtag }}</span></a>
+                    {% endfor %}
+                    {% endif %}
+                </p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

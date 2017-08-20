@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="row clearfix">
+        <div class="col-md-6 col-md-offset-3 column" style="padding-bottom: 20px;">
+            <form action="" method="post" id="search-form">
+                {% csrf_token %}
+                <div class="input-group input-group-sm">
+                    {{ search.q.errors }}
+                    {{ search.q }}
+                    <span class="input-group-btn">
+                        <button class="btn btn-search" type="submit">search</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="row clearfix">
+        <div class="col-md-12 column posts">
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/search.js' %}"></script>
+{% endblock %}
+
+
+

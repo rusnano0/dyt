@@ -1,0 +1,23 @@
+body {
+    padding-top: 70px;
+}
+
+a:hover {text-decoration-line: none;}
+
+/*navbar*/
+
+/*navbar brand*/
+.navbar-inverse .navbar-brand {color: #ffffff;}
+.navbar-inverse .navbar-brand:hover {color: #0176de;}
+/*end navbar brand*/
+/*navbar links and buttons*/
+.navbar-right a{color: #ffffff;}
+.navbar-right a:hover{color: #0176de;}
+/*end navbar links and buttons*/
+/*end navbar*/
+
+/*search inputs*/
+.input-group.input-group-sm {
+    margin-bottom: 10px;
+}
+/*end search inputs*/
