@@ -8,11 +8,17 @@ link to playlist (https://www.youtube.com/watch?v=C90bAExJBd8&list=PLPRsICSqu9Fo
 ```
 
 ### Setup
-Use git to clone the repository or download it in zip.
+Use git to clone the repository OR download it in zip in link above.
 ```
 git clone https://github.com/rusnano0/dyt.git
 ```
-
+Use pip to install requirements from requirements.txt
 ```
 pip install -r requirements.txt
 ```
+###Launch
+To launch the server use this command
+```
+python manage.py runserver
+```
+Check it out on: ```http://127.0.0.1:8000/```
