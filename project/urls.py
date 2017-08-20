@@ -27,8 +27,8 @@ $ 	                 Конец строки
 """
 from django.conf.urls import url
 from django.contrib import admin
-
 from django.contrib.auth import views as auth_views
+
 from posts.views import Index, Profile, PostPost, Search, SearchTag, TagJson
 
 
@@ -42,5 +42,8 @@ urlpatterns = [
     url(r'^search/$', Search.as_view()),
     url(r'^search/hashtag$', SearchTag.as_view()),
     url(r'^hashtag.json$', TagJson.as_view()),
+    url(r'^login/$', auth_views.login),
+    url(r'^logout/$', auth_views.logout),
+
 
 ]

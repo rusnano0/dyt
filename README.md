@@ -40,3 +40,10 @@ python manage.py createsuperuser --username=joe --email=joe@example.com
 
 ### Live HashTag Search
 ```http://127.0.0.1:8000/search/hashtag```
+
+### Login and Logout URLs
+```
+http://127.0.0.1:8000/login
+http://127.0.0.1:8000/login
+
+```
