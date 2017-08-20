@@ -20,3 +20,23 @@ To launch the server use this command
 python manage.py runserver
 ```
 Check it out on: ```http://127.0.0.1:8000/```
+
+### Admin
+```http://127.0.0.1:8000/admin```
+
+use this to go to admin section
+```
+login: admin
+password: admin1234
+```
+
+or create your own superuser
+```
+python manage.py createsuperuser --username=joe --email=joe@example.com
+```
+
+### Search
+```http://127.0.0.1:8000/search/```
+
+### Live HashTag Search
+```http://127.0.0.1:8000/search/hashtag```
